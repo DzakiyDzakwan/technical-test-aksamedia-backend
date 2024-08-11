@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\NilaiController;
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -33,9 +34,7 @@ Route::prefix('v1')->group(function () {
 
         Route::post('logout',  [AuthController::class, 'logout'])->name('logout');
 
-        Route::get("/file/avatar/{filename}", function () {
-            return "test";
-        })->name('file.avatar');
+        Route::get("/file/avatar/{employee_id}/{file_name}", [FileController::class, 'avatar'])->name('file.avatar');
     });
 
     Route::get('/nilaiRT', [NilaiController::class, "nilaiRT"])->name('nilaiRT');

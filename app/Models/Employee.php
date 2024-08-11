@@ -22,7 +22,7 @@ class Employee extends Model
 
     public function getImageUrlAttribute()
     {
-        return route("file.avatar", ["filename" => $this->image]);
+        return route("file.avatar", ['file_name' => $this->image, "employee_id" => $this->uuid]);
     }
 
     // public function getImageAttribute()
