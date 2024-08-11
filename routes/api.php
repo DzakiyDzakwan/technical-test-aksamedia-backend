@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\NilaiController;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,15 +28,8 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware(['auth:sanctum', "auth"])->group(function () {
 
-        Route::resource('divisions', DivisionController::class)->except([
-            'create',
-            'edit',
-        ]);
-
-        Route::resource('employees', EmployeeController::class)->except([
-            'create',
-            'edit',
-        ]);
+        Route::apiResource('divisions', DivisionController::class);
+        Route::apiResource('employees', EmployeeController::class);
 
         Route::post('logout',  [AuthController::class, 'logout'])->name('logout');
 
@@ -43,4 +37,7 @@ Route::prefix('v1')->group(function () {
             return "test";
         })->name('file.avatar');
     });
+
+    Route::get('/nilaiRT', [NilaiController::class, "nilaiRT"])->name('nilaiRT');
+    Route::get('/nilaiST', [NilaiController::class, "nilaiST"])->name('nilaiST');
 });
