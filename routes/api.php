@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DivisionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +24,13 @@ Route::prefix('v1')->group(function () {
     Route::post('login',  [AuthController::class, 'login'])->middleware('guest')->name('login');
 
     Route::middleware(['auth:sanctum', "auth"])->group(function () {
-        Route::prefix('division')->group(function () {});
-        Route::prefix('employee')->group(function () {});
+
+        Route::resource('divisions', DivisionController::class)->except([
+            'create',
+            'edit',
+        ]);
+
+        Route::prefix('employees')->group(function () {});
         Route::post('logout',  [AuthController::class, 'logout'])->name('logout');
     });
 });

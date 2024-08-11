@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class LoginRequest extends FormRequest
+class DivisionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required',
-            'password' => 'required'
+            'name' => 'required|unique:divisions'
         ];
     }
 
@@ -36,8 +35,8 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'username.required'   => 'username tidak boleh kosong',
-            'password.required'   => 'password tidak boleh kosong',
+            'name.required'   => 'nama divisi tidak boleh kosong',
+            'name.unique:divisions' => 'nama divisi sudah tersedia'
         ];
     }
 
