@@ -8,6 +8,20 @@ use Illuminate\Support\Facades\Storage;
 
 trait FileTrait
 {
+    private function saveImage($file, $employee_id)
+    {
+        $file_name = $file->getClientOriginalName();
+        $storage_path = storage_path("/public/employee_{$employee_id}");
+
+        if (!File::exists($storage_path)) {
+            File::makeDirectory($storage_path, 0777, true, true);
+        }
+
+        copy($file->getPathname(), "{$storage_path}/{$file_name}");
+
+        return $file_name;
+    }
+
     private function saveDummyImage($file, $employee_id)
     {
         $file_source = public_path("/avatars/{$file}");

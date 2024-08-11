@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\EmployeeController;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +32,15 @@ Route::prefix('v1')->group(function () {
             'edit',
         ]);
 
-        Route::prefix('employees')->group(function () {});
+        Route::resource('employees', EmployeeController::class)->except([
+            'create',
+            'edit',
+        ]);
+
         Route::post('logout',  [AuthController::class, 'logout'])->name('logout');
+
+        Route::get("/file/avatar/{filename}", function () {
+            return "test";
+        })->name('file.avatar');
     });
 });

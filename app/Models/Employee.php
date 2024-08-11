@@ -16,8 +16,23 @@ class Employee extends Model
 
     protected $guarded = ["created_at", "updated_at"];
 
+    protected $appends = [
+        "image_url"
+    ];
+
+    public function getImageUrlAttribute()
+    {
+        return route("file.avatar", ["filename" => $this->image]);
+    }
+
+    // public function getImageAttribute()
+    // {
+    //     return route("file.avatar", ["filename" => $this->image]);
+    // }
+
+
     public function division()
     {
-        return $this->belongsTo(Division::class);
+        return $this->belongsTo(Division::class, 'division_id', 'uuid');
     }
 }

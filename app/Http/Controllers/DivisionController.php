@@ -13,7 +13,14 @@ class DivisionController extends Controller
 {
     public function index(Request $request)
     {
-        $divisions = Division::where('name', 'like', "%{$request->name}%")->paginate(5);
+        $divisions = Division::query();
+
+        if ($request->name) {
+            $divisions = $divisions->where('name', 'like', "%{$request->name}%");
+        }
+
+        $divisions = $divisions->paginate(5);
+
 
         return response()->json([
             "status" => "success",
