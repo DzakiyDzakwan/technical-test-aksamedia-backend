@@ -23,8 +23,8 @@ class EmployeeController extends Controller
             $employees = $employees->where('name', 'like', "%{$request->name}%");
         }
 
-        if ($request->division_id) {
-            $employees = $employees->where('division_id', $request->division_id);
+        if ($request->division) {
+            $employees = $employees->where('division_id', $request->division);
         }
 
         $employees = $employees->paginate(5);
