@@ -21,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
+
+    Route::get('/', function () {
+        return response()->json([
+            "message" => "Selamat datang di api technical-test-aksamedia, silahkan untuk mengakses link dokumentasi dibawah untuk melihat endpoint api yang tersedia",
+            'documentation' => "https://documenter.getpostman.com/view/33949680/2sA3s4jpRj"
+        ]);
+    });
+
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
     });

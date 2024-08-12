@@ -78,7 +78,7 @@ class EmployeeController extends Controller
             $employee->uuid = $uuid;
             $employee->name = $request->name;
             $employee->phone = $request->phone;
-            $employee->division = $request->division_id;
+            $employee->division_id = $request->division;
             $employee->position = $request->position;
             $employee->image = $this->saveImage($request->file()["image"], $uuid);
 
