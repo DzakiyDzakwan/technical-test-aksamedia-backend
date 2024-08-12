@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->uuid()->primary();
             $table->string('name');
-            $table->char('phone', 13);
+            $table->char('phone', 13)->unique();
             $table->string('image')->nullable();
             $table->string('position');
             $table->uuid('division_id');
