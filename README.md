@@ -6,12 +6,10 @@ Created by : (Dzakiy Dzakwan)[https://www.linkedin.com/in/dzakiydzakwan/]
 
 Technology and Packages :
 
--   Vue JS 3 (Composition API)
--   Vue Router
--   Pinia
--   Tailwind CSS
+-   Laravel
+-   Laravel Sanctum
 
-URL Deployment : (Click this)[https://technical-test-aksamedia-frontend-64k138upj.vercel.app]
+URL Documentation : (Click this)[https://documenter.getpostman.com/view/33949680/2sA3s4jpRj]
 
 ## Project Instalation
 
