@@ -5,6 +5,7 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,7 @@ Route::prefix('v1')->middleware("cors")->group(function () {
 
         Route::apiResource('divisions', DivisionController::class);
         Route::apiResource('employees', EmployeeController::class);
+        Route::apiResource('profile', ProfileController::class)->except(['index', 'show', "store", 'destroy']);
 
         Route::post('logout',  [AuthController::class, 'logout'])->name('logout');
 
