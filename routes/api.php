@@ -30,11 +30,7 @@ Route::prefix('v1')->middleware("cors")->group(function () {
         ]);
     });
 
-    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-        return $request->user();
-    });
-
-    Route::post('login',  [AuthController::class, 'login'])->middleware('guest')->name('login');
+    Route::post('login',  [AuthController::class, 'login'])->middleware('guest')->middleware('guest')->name('login');
 
     Route::middleware(['auth:sanctum', "auth"])->group(function () {
 
