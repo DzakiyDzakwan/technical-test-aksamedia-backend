@@ -2,14 +2,14 @@
 
 ## Technical Test Aksamedia (Backend)
 
-Created by : (Dzakiy Dzakwan)[https://www.linkedin.com/in/dzakiydzakwan/]
+Created by : [Dzakiy Dzakwan](https://www.linkedin.com/in/dzakiydzakwan/)
 
 Technology and Packages :
 
 -   Laravel
 -   Laravel Sanctum
 
-URL Documentation : (Click this)[https://documenter.getpostman.com/view/33949680/2sA3s4jpRj]
+URL Documentation : [Click this](https://documenter.getpostman.com/view/33949680/2sA3s4jpRj)
 
 ## Project Instalation
 
